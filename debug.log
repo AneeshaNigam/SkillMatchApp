@@ -1,0 +1,113 @@
+INFO 2025-03-23 16:36:57,793 autoreload Watching for file changes with StatReloader
+INFO 2025-03-23 16:38:23,055 autoreload C:\noobpy\Skillmatch\skillmatch\core\utils.py changed, reloading.
+INFO 2025-03-23 16:38:25,200 autoreload Watching for file changes with StatReloader
+DEBUG 2025-03-23 16:38:36,720 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:38:37,883 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:38:37,886 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:38:37,890 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:38:39,135 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 16:38:39,352 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:38:40,288 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+WARNING 2025-03-23 16:38:40,400 log Not Found: /favicon.ico
+INFO 2025-03-23 16:40:59,739 autoreload C:\noobpy\Skillmatch\skillmatch\core\utils.py changed, reloading.
+INFO 2025-03-23 16:41:01,997 autoreload Watching for file changes with StatReloader
+INFO 2025-03-23 16:41:45,037 autoreload C:\noobpy\Skillmatch\skillmatch\core\utils.py changed, reloading.
+INFO 2025-03-23 16:41:47,194 autoreload Watching for file changes with StatReloader
+DEBUG 2025-03-23 16:42:00,843 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:42:02,441 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:42:02,443 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:42:02,446 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:42:02,819 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 401 95
+DEBUG 2025-03-23 16:42:02,820 utils GitHub API Response: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}
+ERROR 2025-03-23 16:42:02,820 utils GitHub API Error: {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}
+DEBUG 2025-03-23 16:42:02,824 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:42:03,732 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+WARNING 2025-03-23 16:42:03,843 log Not Found: /favicon.ico
+DEBUG 2025-03-23 16:42:35,493 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:42:36,661 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:42:36,664 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:42:36,667 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:42:37,037 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 401 95
+DEBUG 2025-03-23 16:42:37,038 utils GitHub API Response: {'message': 'Bad credentials', 'documentation_url': 'https://docs.github.com/rest', 'status': '401'}
+ERROR 2025-03-23 16:42:37,038 utils GitHub API Error: {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}
+DEBUG 2025-03-23 16:42:37,041 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:42:38,027 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+WARNING 2025-03-23 16:42:38,276 log Not Found: /favicon.ico
+INFO 2025-03-23 16:43:44,175 autoreload C:\noobpy\Skillmatch\skillmatch\core\utils.py changed, reloading.
+INFO 2025-03-23 16:43:46,524 autoreload Watching for file changes with StatReloader
+DEBUG 2025-03-23 16:44:03,131 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:44:04,340 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:44:04,341 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:44:04,343 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:44:05,489 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 16:44:05,627 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:44:06,627 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 82
+WARNING 2025-03-23 16:44:06,796 log Not Found: /favicon.ico
+INFO 2025-03-23 16:50:17,893 autoreload C:\noobpy\Skillmatch\skillmatch\core\utils.py changed, reloading.
+INFO 2025-03-23 16:50:20,265 autoreload Watching for file changes with StatReloader
+DEBUG 2025-03-23 16:50:32,010 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:50:33,216 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:50:33,217 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:50:33,219 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:50:34,326 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 16:50:34,602 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:50:35,568 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 82
+WARNING 2025-03-23 16:50:35,711 log Not Found: /favicon.ico
+INFO 2025-03-23 16:51:46,115 autoreload C:\noobpy\Skillmatch\skillmatch\core\utils.py changed, reloading.
+INFO 2025-03-23 16:51:48,309 autoreload Watching for file changes with StatReloader
+WARNING 2025-03-23 16:52:01,773 log Not Found: /favicon.ico
+DEBUG 2025-03-23 16:52:04,343 utils Tokens in Text: ['python']
+DEBUG 2025-03-23 16:52:04,343 utils Extracted Skills: ['python']
+DEBUG 2025-03-23 16:52:04,386 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:52:05,599 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:52:05,600 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:52:05,603 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:52:06,814 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 16:52:06,952 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:52:07,879 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+INFO 2025-03-23 16:55:53,590 autoreload C:\noobpy\Skillmatch\skillmatch\skillmatch\settings.py changed, reloading.
+INFO 2025-03-23 16:55:55,870 autoreload Watching for file changes with StatReloader
+INFO 2025-03-23 16:56:27,522 autoreload Watching for file changes with StatReloader
+DEBUG 2025-03-23 16:56:40,726 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:56:41,911 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:56:41,913 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:56:41,915 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:56:43,223 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 16:56:43,508 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:56:44,480 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+WARNING 2025-03-23 16:56:44,583 log Not Found: /favicon.ico
+INFO 2025-03-23 16:57:45,831 autoreload Watching for file changes with StatReloader
+DEBUG 2025-03-23 16:58:12,090 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 16:58:13,290 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 16:58:13,291 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 16:58:13,294 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 16:58:14,490 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 16:58:14,619 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 16:58:15,544 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+WARNING 2025-03-23 16:58:15,647 log Not Found: /favicon.ico
+INFO 2025-03-23 17:00:49,752 autoreload C:\noobpy\Skillmatch\skillmatch\skillmatch\settings.py changed, reloading.
+DEBUG 2025-03-23 17:01:45,509 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 17:01:46,704 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 17:01:46,705 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 17:01:46,709 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 17:01:47,822 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 17:01:47,950 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 17:01:48,916 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+DEBUG 2025-03-23 17:04:31,833 connectionpool Starting new HTTPS connection (1): api.adzuna.com:443
+DEBUG 2025-03-23 17:04:33,005 connectionpool https://api.adzuna.com:443 "GET /v1/api/jobs/us/search/1?app_id=146640b5&app_key=ab9bf9bfd9a702edb7b063759d631313&what=python&sort_by=relevance&results_per_page=10 HTTP/1.1" 200 14484
+DEBUG 2025-03-23 17:04:33,006 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 17:04:33,009 connectionpool Starting new HTTPS connection (1): api.github.com:443
+DEBUG 2025-03-23 17:04:34,147 connectionpool https://api.github.com:443 "GET /search/repositories?q=python&sort=stars&order=desc HTTP/1.1" 200 None
+DEBUG 2025-03-23 17:04:34,264 connectionpool Starting new HTTPS connection (1): api.coursera.org:443
+DEBUG 2025-03-23 17:04:35,256 connectionpool https://api.coursera.org:443 "GET /api/courses.v1?q=python&fields=name%2Cdescription&limit=5 HTTP/1.1" 405 None
+DEBUG 2025-03-23 17:09:54,646 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+WARNING 2025-03-23 17:09:57,011 log Not Found: /favicon.ico
+DEBUG 2025-03-23 17:18:58,280 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 17:19:00,922 utils Fetching courses from Coursera API for skill: python
+ERROR 2025-03-23 17:19:01,995 utils Failed to fetch courses from Coursera API. Status code: 405, Response: {"msg":"Routing error: finder 'python' not implemented"}
+WARNING 2025-03-23 17:19:02,097 log Not Found: /favicon.ico
+DEBUG 2025-03-23 17:44:18,464 utils Tokens in Text: ['python']
+DEBUG 2025-03-23 17:44:18,464 utils Extracted Skills: ['python']
+DEBUG 2025-03-23 17:44:19,998 utils GitHub API URL: https://api.github.com/search/repositories?q=python&sort=stars&order=desc
+DEBUG 2025-03-23 17:44:21,484 utils Fetching courses from Coursera API for skill: python
+ERROR 2025-03-23 17:44:22,449 utils Failed to fetch courses from Coursera API. Status code: 405, Response: {"msg":"Routing error: finder 'python' not implemented"}
