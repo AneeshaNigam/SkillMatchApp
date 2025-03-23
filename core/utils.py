@@ -5,15 +5,22 @@ import requests
 from pdfminer.high_level import extract_text
 from io import BytesIO
 import logging
+from decouple import config  
 
 # Initialize the logger
 logger = logging.getLogger(__name__)
 
 nlp = spacy.load("en_core_web_sm")
 
+# Load API keys from environment variables
+ADZUNA_API_ID = config('ADZUNA_API_ID')
+ADZUNA_API_KEY = config('ADZUNA_API_KEY')
+GITHUB_API_TOKEN = config('GITHUB_API_TOKEN')
+
+
 def extract_skills(text):
     if not text:
-        logger.info("No text provided for skill extraction.")  # Log info message
+        logger.info("No text provided for skill extraction.")  
         return []
     
     skill_keywords = [
@@ -26,35 +33,27 @@ def extract_skills(text):
     ]
     
     doc = nlp(text.lower())
-    skills = []
+    skills = [token.text for token in doc if token.text in skill_keywords]
     
-    logger.debug(f"Tokens in Text: {[token.text for token in doc]}")  # Log debug message
-    
-    for token in doc:
-        if token.text in skill_keywords:
-            skills.append(token.text)
-    
-    logger.debug(f"Extracted Skills: {skills}")  # Log debug message
+    logger.debug(f"Extracted Skills: {skills}")  
     return skills
 
+
 def extract_text_from_pdf(pdf_file):
-    """
-    Extracts text from a PDF file.
-    Handles both file paths and InMemoryUploadedFile objects.
-    """
     try:
-        if hasattr(pdf_file, 'read'):  # Check if it's a file-like object
+        if hasattr(pdf_file, 'read'):  
             pdf_content = pdf_file.read()
             pdf_stream = BytesIO(pdf_content)
             text = extract_text(pdf_stream)
         else:
             text = extract_text(pdf_file)
         
-        logger.info("Successfully extracted text from PDF.")  # Log info message
+        logger.info("Successfully extracted text from PDF.")  
         return text
     except Exception as e:
-        logger.error(f"Error extracting text from PDF: {e}")  # Log error message
+        logger.error(f"Error extracting text from PDF: {e}")  
         return None
+
 
 def match_projects(user_skills, projects):
     vectorizer = TfidfVectorizer()
@@ -63,67 +62,51 @@ def match_projects(user_skills, projects):
     matched_indices = similarities.argsort()[0][::-1]
     return [projects[i] for i in matched_indices]
 
+
 def fetch_real_time_jobs(skills, location='us'):
-    ADZUNA_API_ID = '146640b5'
-    ADZUNA_API_KEY = 'ab9bf9bfd9a702edb7b063759d631313'
     base_url = 'https://api.adzuna.com/v1/api/jobs'
     endpoint = f'{base_url}/{location}/search/1'
     params = {
         'app_id': ADZUNA_API_ID,
         'app_key': ADZUNA_API_KEY,
-        'what': skills,  # Job title or skills
-        'sort_by': 'relevance',  # Sort by relevance
-        'results_per_page': 10,  # Number of jobs to fetch
+        'what': skills,  
+        'sort_by': 'relevance',  
+        'results_per_page': 10,  
     }
     response = requests.get(endpoint, params=params)
     if response.status_code == 200:
         return response.json().get('results', [])
     return []
 
+
 def fetch_open_source_projects(skills):
     if not skills:
-        logger.info("No skills provided for GitHub API query.")  # Log info message
+        logger.info("No skills provided for GitHub API query.")  
         return []
     
     query = '+'.join(skills.split(','))
     url = f'https://api.github.com/search/repositories?q={query}&sort=stars&order=desc'
     
-    logger.debug(f"GitHub API URL: {url}")  # Log debug message
-    
-    headers = {'Authorization': 'token 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'}
+    headers = {'Authorization': f'token {GITHUB_API_TOKEN}'}
     response = requests.get(url, headers=headers)
-    
-    logger.debug(f"GitHub API Response: {response.json()}")  # Log debug message
     
     if response.status_code == 200:
         return response.json().get('items', [])
     else:
-        logger.error(f"GitHub API Error: {response.text}")  # Log error message
+        logger.error(f"GitHub API Error: {response.text}")  
         return []
+
 
 def get_courses(skill):
     """
-    Fetch courses from Coursera API based on a skill.
+    Fetches static courses instead of using an API.
     """
-    try:
-        url = "https://api.coursera.org/api/courses.v1"
-        params = {
-            'q': skill,
-            'fields': 'name,description',
-            'limit': 5  # Limit the number of results
-        }
-        logger.debug(f"Fetching courses from Coursera API for skill: {skill}")
-        response = requests.get(url, params=params)
-        
-        if response.status_code == 200:
-            data = response.json().get('elements', [])
-            if not data:
-                logger.warning(f"No courses found for skill: {skill}")
-                return [{"name": "No courses found", "description": "Try a different skill or check back later."}]
-            return data
-        else:
-            logger.error(f"Failed to fetch courses from Coursera API. Status code: {response.status_code}, Response: {response.text}")
-            return [{"name": "Error fetching courses", "description": "Please try again later."}]
-    except Exception as e:
-        logger.error(f"Error fetching courses from Coursera API: {e}")
-        return [{"name": "Error fetching courses", "description": "Please try again later."}]
+    courses = [
+        {"name": "Python for Beginners", "description": "Learn Python from scratch.", "url": "#"},
+        {"name": "Machine Learning 101", "description": "Introduction to Machine Learning concepts.", "url": "#"},
+        {"name": "Full Stack Web Development", "description": "Learn HTML, CSS, JavaScript, and Django.", "url": "#"},
+        {"name": "Data Science with Pandas", "description": "Master data manipulation and analysis.", "url": "#"},
+        {"name": "React.js for Frontend Development", "description": "Learn React for modern web applications.", "url": "#"},
+    ]
+
+    return courses

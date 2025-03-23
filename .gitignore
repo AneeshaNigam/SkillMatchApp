@@ -1,0 +1,16 @@
+# Ignore environment files
+.env
+
+# Ignore log files
+*.log
+
+
+
+# Ignore Python cache
+_pycache_/
+
+# Ignore compiled files
+*.pyc
+
+# Ignore database files
+*.sqlite3
