@@ -1,6 +1,59 @@
-<h1>{% if is_update %}Update Your Profile{% else %}Create Your Profile{% endif %}</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">{% if is_update %}Update{% else %}Save{% endif %}</button>
-</form>
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="stars">
+    <script>
+        for(let i = 0; i < 100; i++) {
+            let star = document.createElement("div");
+            star.className = "star";
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            document.querySelector(".stars").appendChild(star);
+        }
+    </script>
+</div>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="card-title text-center">
+            {% if is_update %}
+              <i class="fas fa-user-edit"></i> Update Your Profile
+            {% else %}
+              <i class="fas fa-user-plus"></i> Create Your Profile
+            {% endif %}
+          </h2>
+        </div>
+        <div class="card-body">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_skills" class="form-label">Skills</label>
+              {{ form.skills }}
+            </div>
+            <div class="mb-3">
+              <label for="id_resume" class="form-label">Resume</label>
+              {{ form.resume }}
+            </div>
+            <div class="mb-3">
+              <label for="id_profile_picture" class="form-label">Profile Picture</label>
+              {{ form.profile_picture }}
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">
+                {% if is_update %}
+                  <i class="fas fa-save"></i> Update Profile
+                {% else %}
+                  <i class="fas fa-save"></i> Save Profile
+                {% endif %}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

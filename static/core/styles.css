@@ -1,0 +1,94 @@
+/* Aesthetic Theme */
+:root {
+    --primary-color: #3B82F6;  /* Soft Blue */
+    --secondary-color: #E5E7EB; /* Light Grey */
+    --background-color: #F9FAFB; /* Off White */
+    --text-color: #1F2937; /* Dark Grey */
+    --border-radius: 8px;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+/* Input Fields */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--secondary-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    outline: none;
+}
+
+/* File Upload */
+input[type="file"] {
+    background-color: white;
+    padding: 5px;
+    border: none;
+}
+
+/* Button */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #2563EB;
+}
+
+/* Form Layout */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 500;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Spaces items */
+    align-items: center; /* Aligns items vertically */
+    background-color: #ffffff; /* Change as needed */
+    padding: 10px 20px;
+    width: 100%; /* Ensure full width */
+    position: fixed; /* Keeps navbar fixed */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it's above everything */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow */
+}

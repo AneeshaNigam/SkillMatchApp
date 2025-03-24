@@ -1,34 +1,51 @@
+{% extends 'core/base.html' %}
+{% load static %}
 
+{% block content %}
+<div class="stars">
+    <script>
+        for(let i = 0; i < 100; i++) {
+            let star = document.createElement("div");
+            star.className = "star";
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            document.querySelector(".stars").appendChild(star);
+        }
+    </script>
+</div>
 
-<h1>Real-Time Job Suggestions</h1>
-<ul>
+<div class="container mt-5">
+  <h1>Real-Time Job Suggestions</h1>
+  <ul class="list-group">
     {% for job in jobs %}
-    <li>
-        <h2>{{ job.title }}</h2>
-        <p>{{ job.company }} - {{ job.location }}</p>
-        <p>{{ job.description }}</p>
-        <a href="{{ job.redirect_url }}" target="_blank">Apply Now</a>
+    <li class="list-group-item">
+      <h2>{{ job.title }}</h2>
+      <p>{{ job.company_name }} - {{ job.location_name }}</p>
+      <p>{{ job.description }}</p>
+      <a href="{{ job.redirect_url }}" target="_blank" class="btn btn-primary">Apply Now</a>
     </li>
     {% endfor %}
-</ul>
+  </ul>
 
-<h1>Open Source Projects</h1>
-<ul>
+  <h1 class="mt-5">Open Source Projects</h1>
+  <ul class="list-group">
     {% for project in open_source_projects %}
-    <li>
-        <h2>{{ project.name }}</h2>
-        <p>{{ project.description }}</p>
-        <a href="{{ project.html_url }}" target="_blank">View on GitHub</a>
+    <li class="list-group-item">
+      <h2>{{ project.name }}</h2>
+      <p>{{ project.description }}</p>
+      <a href="{{ project.html_url }}" target="_blank" class="btn btn-primary">View on GitHub</a>
     </li>
     {% endfor %}
-</ul>
+  </ul>
 
-<h1>Recommended Courses</h1>
-<ul>
+  <h1 class="mt-5">Recommended Courses</h1>
+  <ul class="list-group">
     {% for course in courses %}
-    <li>
-        <h2>{{ course.name }}</h2>
-        <p>{{ course.description }}</p>
+    <li class="list-group-item">
+      <h2>{{ course.name }}</h2>
+      <p>{{ course.description }}</p>
     </li>
     {% endfor %}
-</ul>
+  </ul>
+</div>
+{% endblock %}

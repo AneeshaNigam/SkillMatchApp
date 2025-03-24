@@ -178,3 +178,17 @@ LOGGING = {
 ADZUNA_API_ID = config('ADZUNA_API_ID')
 ADZUNA_API_KEY = config('ADZUNA_API_KEY')
 GITHUB_API_TOKEN = config('GITHUB_API_TOKEN')
+
+# settings.py
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Add to INSTALLED_APPS
+'django.contrib.staticfiles',
+
+# Add to TEMPLATES context processors
+'django.template.context_processors.static',
