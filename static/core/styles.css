@@ -1,94 +1,318 @@
 /* Aesthetic Theme */
 :root {
-    --primary-color: #3B82F6;  /* Soft Blue */
-    --secondary-color: #E5E7EB; /* Light Grey */
-    --background-color: #F9FAFB; /* Off White */
-    --text-color: #1F2937; /* Dark Grey */
-    --border-radius: 8px;
+    --primary-color: #F5F5DC;  /* Beige for Buttons */
+    --secondary-color: #1e5d4d; /* Muted Teal for Borders & Inputs */
+    --background-color: #E8EAF6; /* Light Lilac Background Color */
+    --text-color: #5D3F8D; /* Dark Purple for Text */
+    --container-bg: #FFFFFF; /* White for Form Box */
+    --input-bg: #E0E0E0; /* Light Grey for Input Fields */
+    --border-radius: 12px;
+    --hover-color: #E0D8B0; /* Slightly darker Beige for hover effects */
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 body {
-    background-color: var(--background-color);
+    background: linear-gradient(135deg, #E8EAF6, #D1C4E9, #B39DDB, #9575CD, #7E57C2); /* Frosted Lilac Gradient */
+    background-size: 200% 200%; /* Make the gradient larger for a smoother transition */
+    animation: gradientAnimation 15s ease infinite; /* Animation for a dynamic effect */
     color: var(--text-color);
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 50px;
+    position: relative;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Form Container */
 .container {
-    background: white;
-    padding: 25px;
+    background: var(--container-bg);
+    padding: 50px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 50%;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    width: 75%;
+    max-width: 1100px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
 }
 
 /* Header */
 .header {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--secondary-color);
+    color: var(--text-color); /* Changed to dark purple */
     text-align: center;
-    padding: 10px;
-    font-size: 20px;
+    padding: 20px;
+    font-size: 26px;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
+    font-weight: 600;
+    box-shadow: 0 2px 5px var(--shadow-color);
 }
 
 /* Input Fields */
 input, textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid var(--secondary-color);
+    padding: 15px;
+    margin-top: 10px;
+    border: 2px solid var(--secondary-color);
     border-radius: var(--border-radius);
-    font-size: 16px;
+    font-size: 18px;
+    background-color: var(--input-bg);
+    color: var(--text-color); /* Changed to dark purple */
     outline: none;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px rgba(245, 245, 220, 0.5);
 }
 
 /* File Upload */
 input[type="file"] {
-    background-color: white;
-    padding: 5px;
-    border: none;
+    border: 2px solid var(--secondary-color);
+    padding: 12px;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    background-color: var(--input-bg);
+    color: var(--text-color); /* Changed to dark purple */
 }
 
 /* Button */
 button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 15px;
+    background-color: var(--primary-color) !important;  /* Beige */
+    color: var(--text-color) !important; /* Changed to dark purple */
+    padding: 15px 22px;
     border: none;
     border-radius: var(--border-radius);
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: 500;
 }
 
 button:hover {
-    background-color: #2563EB;
+    background-color: var(--hover-color) !important; /* Slightly darker Beige */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Apply Now Button */
+.btn-primary {
+    background-color: #e9e4b8; /* Green for Apply Now */
+    color: var(--text-color) !important; /* Changed to dark purple */
+    padding: 15px 22px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 18px;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it behave like a button */
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: 500;
+    text-align: center; /* Center text */
+}
+
+.btn-primary:hover {
+    background-color: #bcb482; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
 /* Form Layout */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-color); /* Changed to dark purple */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding: 15px 30px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    color: var(--text-color); /* Added dark purple text color */
+}
+
+/* Stars Background */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(white 1px, transparent 1px);
+    background-size: 5px 5px;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 40px;
+    }
+
+    input, textarea {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 14px 18px;
+    }
+}
+
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: var(--star-size);
+    height: var(--star-size);
+    background: var(--star-color);
+    animation: twinkle var(--star-animation-duration) infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.2; }
+}
+/* Dashboard Headings */
+.container.mt-5 h1 {
+    color: var(--text-color) !important;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Optional: Style the h2 headings inside list items */
+.list-group-item h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Optional: Style the paragraphs inside list items */
+.list-group-item p {
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+/* Signup Page Styling */
+.container.mt-5 h2 {
+    color: var(--text-color) !important; /* Purple heading */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+/* Style form labels and text */
+form p label {
+    color: var(--text-color);
     font-weight: 500;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between; /* Spaces items */
-    align-items: center; /* Aligns items vertically */
-    background-color: #ffffff; /* Change as needed */
-    padding: 10px 20px;
-    width: 100%; /* Ensure full width */
-    position: fixed; /* Keeps navbar fixed */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensures it's above everything */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow */
+/* Style form inputs (if needed) */
+form input {
+    background-color: var(--input-bg) !important;
+    border: 2px solid var(--secondary-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* "Already have an account?" link styling */
+.container.mt-5 p {
+    color: var(--text-color);
+    text-align: center;
+}
+
+.container.mt-5 a {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.container.mt-5 a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Home Page Styling */
+.container h1 {
+    color: var(--text-color) !important;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px var(--shadow-color);
+    animation: fadeIn 1s ease-in;
+}
+
+.container p {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add this with your other animations */
+
+.skillmatch-heading span {
+    font-family: 'Orbitron', sans-serif; /* Apply Orbitron font */
+    font-weight: 700; /* Bold weight */
+    letter-spacing: 1.5px; /* Adjust spacing */
+    color: #6a0dad; /* Purple color */
+    text-transform: uppercase; /* Optional: Uppercase text */
 }

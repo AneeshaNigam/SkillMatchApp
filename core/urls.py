@@ -1,10 +1,9 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('login/', views.user_login, name='login'),
-    path('signup/', views.signup, name='signup'),
-    path('logout/', views.user_logout, name='logout'),
-    path('create-profile/', views.create_profile, name='create_profile'),
-    path('dashboard/', views.dashboard, name='dashboard'),
+    path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='/home/')),  # Redirect root URL to home
+    path('', include('core.urls')),  # Include core.urls only once
 ]

@@ -7,6 +7,13 @@ from .forms import UserProfileForm
 from .models import UserProfile, Project
 from .utils import extract_text_from_pdf, match_projects, fetch_real_time_jobs, fetch_open_source_projects, get_courses, extract_skills
 
+def home(request):
+    return render(request, 'core/home.html')
+
+@login_required
+def login_redirect(request):
+    return redirect('home')
+
 # Login View
 def user_login(request):
     # Ensures login is prompted every time by logging out and clearing session data
@@ -49,12 +56,8 @@ def user_logout(request):
 # Create Profile View
 @login_required
 def create_profile(request):
-    try:
-        user_profile = UserProfile.objects.get(user=request.user)
-        is_update = True
-    except UserProfile.DoesNotExist:
-        user_profile = None
-        is_update = False
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)  # Ensures a profile exists
+    is_update = not created  # True if updating an existing profile
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
@@ -62,16 +65,24 @@ def create_profile(request):
             profile = form.save(commit=False)
             profile.user = request.user
 
+            # **Extract skills from resume if uploaded**
+            resume_skills = []
             if 'resume' in request.FILES:
                 resume_text = extract_text_from_pdf(request.FILES['resume'])
-                skills = extract_skills(resume_text)
-                profile.skills = ", ".join(skills)
-            else:
-                skills = extract_skills(form.cleaned_data.get('skills', ''))
-                profile.skills = ", ".join(skills)
+                resume_skills = extract_skills(resume_text)
 
+            # **Extract skills from form input (manual entry)**
+            form_skills = extract_skills(form.cleaned_data.get('skills', ''))
+
+            # **Merge existing, resume, and form skills (avoid duplicates)**
+            all_skills = set(user_profile.skills.split(", ") if user_profile.skills else [])  # Preserve old skills
+            all_skills.update(resume_skills)
+            all_skills.update(form_skills)
+
+            profile.skills = ", ".join(sorted(all_skills))  # Store as a sorted, comma-separated string
             profile.save()
-            return redirect('dashboard')
+
+            return redirect('dashboard')  # Redirect to the dashboard after saving
     else:
         form = UserProfileForm(instance=user_profile)
 
