@@ -1,0 +1,89 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home - SkillMatch{% endblock %}
+
+{% block content %}
+<div class="stars"></div>
+
+<div class="container text-center mt-5">
+    <h1 class="display-4 text-primary skillmatch-heading">Welcome to <span>SkillMatch</span></h1>
+    <p class="lead">Your career journey starts here.</p>
+
+    {% if not user.is_authenticated %}
+    <div class="auth-buttons">
+        <a href="{% url 'signup' %}" class="btn btn-success btn-lg m-2">
+            <i class="fas fa-user-plus"></i> Get Started
+        </a>
+        <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg m-2">
+            <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+    </div>
+    {% else %}
+    <div class="welcome-message">
+        <p class="text-success">Welcome back, {{ user.username }}!</p>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg m-2">
+            <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center text-info">Why Choose SkillMatch?</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="fas fa-briefcase fa-3x text-primary"></i>
+            <h4>Find Jobs</h4>
+            <p>Get matched with top companies based on your skills.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-book-open fa-3x text-success"></i>
+            <h4>Learn & Grow</h4>
+            <p>Access curated courses to enhance your career.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fas fa-project-diagram fa-3x text-warning"></i>
+            <h4>Join Projects</h4>
+            <p>Collaborate on open-source and industry projects.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary">What Our Users Say</h2>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <p class="text-center">"SkillMatch helped me land my dream job!" - <strong>Shreya S.</strong></p>
+            </div>
+            <div class="carousel-item">
+                <p class="text-center">"A fantastic platform for career growth!" - <strong>Ravi K.</strong></p>
+            </div>
+            <div class="carousel-item">
+                <p class="text-center">"The AI-driven recommendations are spot-on!" - <strong>Priya S.</strong></p>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const starsContainer = document.querySelector(".stars");
+        for (let i = 0; i < 100; i++) {
+            let star = document.createElement("div");
+            star.className = "star";
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            starsContainer.appendChild(star);
+        }
+    });
+</script>
+
+{% endblock %}

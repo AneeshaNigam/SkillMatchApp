@@ -17,7 +17,7 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header" style="background-color: #F5F5DC; color: #5D3F8D;">
           <h2 class="card-title text-center">
             {% if is_update %}
               <i class="fas fa-user-edit"></i> Update Your Profile
@@ -37,10 +37,7 @@
               <label for="id_resume" class="form-label">Resume</label>
               {{ form.resume }}
             </div>
-            <div class="mb-3">
-              <label for="id_profile_picture" class="form-label">Profile Picture</label>
-              {{ form.profile_picture }}
-            </div>
+            
             <div class="text-center">
               <button type="submit" class="btn btn-primary">
                 {% if is_update %}
