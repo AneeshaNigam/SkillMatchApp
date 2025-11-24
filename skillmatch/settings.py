@@ -32,7 +32,11 @@ SECRET_KEY = config("SECRET_KEY", default="dev-only-insecure-secret-key")
 DEBUG = config("DEBUG", default=True, cast=bool)
 
 # For local dev:
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "skillmatchapp.onrender.com",
+]
 # When you deploy to Render, add your domain here too, e.g.:
 # ALLOWED_HOSTS = ["localhost", "127.0.0.1", "your-app.onrender.com"]
 
