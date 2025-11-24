@@ -4,7 +4,7 @@
 # Ignore log files
 *.log
 
-
+venv/
 
 # Ignore Python cache
 _pycache_/
